@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+    <style>
+        :root {
+            --background: white;
+            --primary: #ff1ead;
+            --secondary: #1effc3;
+            --card-size: 50vw;
+        }
+
+        body {
+            /* Center horizontally */
+            display: grid;
+            place-items: center;
+
+            /* Center vertically */
+            height: 100vh;
+
+            min-width: 320px;
+
+            font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+            font-size: 8pt;
+
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+            background: -moz-linear-gradient(-45deg, #ffe0e3 32%, #a7e0e5 68%);
+            background: -webkit-linear-gradient(-45deg, #ffe0e3 32%, #a7e0e5 68%);
+            background: linear-gradient(135deg, #ffe0e3 32%, #a7e0e5 68%);
+        }
+
+        @keyframes card-ani4 {
+            0% {
+                opacity: 0;
+                transform: translateX(50px) translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0px) translateY(0px);
+            }
+        }
+
+
+        @keyframes circle-ani1 {
+            0% {
+                transform: translateX(0px) translateY(0px);
+            }
+
+            20% {
+                transform: translateX(20px) translateY(-10px);
+            }
+
+            40% {
+                transform: translateX(-10px) translateY(-30px);
+            }
+
+            60% {
+                transform: translateX(-20px) translateY(-10px);
+            }
+
+            80% {
+                transform: translateX(10px) translateY(10px);
+            }
+
+            100% {
+                transform: translateX(0px) translateY(0px);
+            }
+        }
+
+        @keyframes circle-ani2 {
+            0% {
+                transform: translateX(20px) translateY(0px);
+            }
+
+            20% {
+                transform: translateX(-10px) translateY(20px);
+            }
+
+            40% {
+                transform: translateX(0px) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(20px) translateY(0px);
+            }
+
+            80% {
+                transform: translateX(-10px) translateY(20px);
+            }
+
+            100% {
+                transform: translateX(20px) translateY(0px);
+            }
+        }
+
+        @keyframes circle-ani3 {
+            0% {
+                transform: translateX(-30px) translateY(10px);
+            }
+
+            20% {
+                transform: translateX(-10px) translateY(0px);
+            }
+
+            40% {
+                transform: translateX(0px) translateY(-20px);
+            }
+
+            60% {
+                transform: translateX(20px) translateY(10px);
+            }
+
+            80% {
+                transform: translateX(15px) translateY(-20px);
+            }
+
+            100% {
+                transform: translateX(-30px) translateY(10px);
+            }
+        }
+
+        .circle1 {
+            width: 500px;
+            height: 500px;
+            background-color: white;
+            border: 0;
+            opacity: 0.3;
+            position: absolute;
+            border-radius: 100%;
+            bottom: -254px;
+            left: -255px;
+            animation: circle-ani1 10s infinite;
+            animation-timing-function: linear;
+        }
+
+        .circle2 {
+            width: 120px;
+            height: 120px;
+            background-color: white;
+            border: 0;
+            opacity: 0.5;
+            position: absolute;
+            border-radius: 100%;
+            bottom: 214px;
+            left: -69px;
+            animation: circle-ani2 10s infinite;
+            animation-timing-function: linear;
+        }
+
+        .circle3 {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border: 0;
+            opacity: 0.6;
+            position: absolute;
+            border-radius: 100%;
+            top: 183px;
+            left: 78px;
+            animation: circle-ani3 10s infinite;
+            animation-timing-function: linear;
+        }
+
+        .circle4 {
+            width: 220px;
+            height: 220px;
+            background-color: transparent;
+            border: solid 2px white;
+            opacity: 0.6;
+            position: absolute;
+            border-radius: 100%;
+            bottom: -100px;
+            left: 100px;
+            animation: circle-ani3 10s infinite;
+            animation-timing-function: linear;
+        }
+
+        .circle5 {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border: 0;
+            opacity: 0.5;
+            position: absolute;
+            border-radius: 100%;
+            bottom: 30px;
+            left: 298px;
+            animation: circle-ani2 10s infinite;
+            animation-timing-function: linear;
+        }
+
+        .circle6 {
+            width: 300px;
+            height: 300px;
+            background-color: transparent;
+            border: solid 2px white;
+            opacity: 0.6;
+            position: absolute;
+            border-radius: 100%;
+            top: -150px;
+            right: -80px;
+            animation: circle-ani3 10s infinite;
+            animation-timing-function: linear;
+        }
+
+        .circle7 {
+            width: 165px;
+            height: 165px;
+            background-color: white;
+            border: 0;
+            opacity: 0.45;
+            position: absolute;
+            border-radius: 100%;
+            top: 71px;
+            right: -106px;
+            animation: circle-ani1 10s infinite;
+            animation-timing-function: linear;
+        }
+
+        .circle8 {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 0;
+            opacity: 0.7;
+            position: absolute;
+            border-radius: 100%;
+            top: 183px;
+            right: 78px;
+            animation: circle-ani2 10s infinite;
+            animation-timing-function: linear;
+        }
+
+
+        .card {
+            width: calc(var(--card-size) * 1.586);
+            min-width: 320px;
+            max-width: 480px;
+            /* height: var(--card-size); */
+            border-radius: 0.75rem;
+            box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+            background: white;
+            display: grid;
+            grid-template-columns: 30% 39% 30%;
+            /* align-items: center; */
+            will-change: transform;
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+            padding: 30px
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 32px 80px 14px rgba(0, 0, 0, 0.36), 0 0 0 1px rgba(0, 0, 0, 0.3);
+        }
+
+        img {
+            object-fit: contain;
+            width: 100%;
+        }
+
+        .portrait {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .title {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .links {
+            grid-column: 1;
+            grid-row: 3;
+        }
+
+        .links img {
+            width: 20%;
+        }
+
+
+        .doug {
+            grid-column: 2;
+            grid-row: 1;
+            text-align: center;
+            /* vertically align */
+            margin: auto;
+        }
+
+        .mazda {
+            grid-column: 2;
+            grid-row: 2 / span 3;
+            text-align: center;
+            /* vertically align */
+            margin: auto;
+        }
+
+        .mazda img {
+            width: 70%;
+        }
+
+        .zoom {
+            grid-column: 3;
+            grid-row: 1;
+            text-align: center;
+            /* vertically align */
+            margin: auto;
+        }
+
+        .zoom img {
+            width: 40%;
+        }
+
+        .contact {
+            grid-column: 3;
+            grid-row: 2 / span 3;
+            text-align: right;
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 7pt;
+            }
+        }
+    </style>
+    <div class="card">
+        <div class="portrait">
+            <img src="portrait.png" />
+        </div>
+        <div class="links">
+            <img src="reviews.png" />
+            <img src="fb.svg" />
+            <img src="maps.png" />
+        </div>
+        <div class="title">
+            Tony Nguyen<br />
+            Sales & Exchange Specialist<br />
+            Doug's Mazda | 22214 Hwy 99<br />
+            Edmonds, WA 98026<br />
+        </div>
+        <div class="doug">
+            <img src="dougs.jpg" />
+        </div>
+        <div class="mazda">
+            <img src="mazda.jpg" />
+        </div>
+        <div class="zoom">
+            <img src="zoomzoom.jpg" />
+        </div>
+        <div class="contact">
+            store: 425-774-3551<br />
+            fax: 425-672-1878<br />
+            cell: 206-839-6263<br />
+            email: tnguyen@Dougs.com<br />
+        </div>
+    </div>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    <div class="circle4"></div>
+    <div class="circle5"></div>
+    <div class="circle6"></div>
+    <div class="circle7"></div>
+    <div class="circle8"></div>
+</body>
+
+</html>
